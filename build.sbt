@@ -29,3 +29,5 @@ dbcLibraryPath := "/Users/" + System.getenv("DBC_USERNAME") + "/lib"
 
 //required for spart-testing-base
 parallelExecution in Test := false
+
+publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
