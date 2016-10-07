@@ -1,0 +1,38 @@
+# Covers JetBrains IDE
+# https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# IntelliJ User-specific stuff:
+/out/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/libraries/
+
+# IntelliJ Sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+
+## IntelliJ File-based project format:
+*.iws
+
+## IntelliJ Plugin-specific files:
+.idea_modules/
+
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+
+target/
+lib_managed/
+src_managed/
+project/boot/
+.history
+.cache
+
+# Any kind of log file
+*.log
