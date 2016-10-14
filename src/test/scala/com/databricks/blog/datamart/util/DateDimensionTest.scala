@@ -8,7 +8,7 @@ class DateDimensionTest extends FunSuite with SharedSparkContext {
 
   test("test DateDimension default does NOT generate duplicate date_value") {
     //There should never be any duplicate date_values
-    val dateDimDefault = new DateDimension().create()
+    val dateDimDefault = new DateDimension().createDataFrame()
 
     val duplicateDates = dateDimDefault.groupBy("date_value")
       .agg(count("date_value"))

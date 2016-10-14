@@ -11,7 +11,7 @@ import com.databricks.blog.datamart.util.DateDimension
 
 // COMMAND ----------
 
-val dateDim = new DateDimension().create()
+val dateDim = new DateDimension().createDataFrame()
 
 // COMMAND ----------
 

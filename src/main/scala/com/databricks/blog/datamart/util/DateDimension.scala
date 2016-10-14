@@ -6,22 +6,17 @@ import java.time.temporal.ChronoUnit.DAYS
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
-class DateDimension (startDate: String = "1970-01-01", dateFormatMask : String = "yyyy-MM-dd",
+class DateDimension (startDate: String = "1970-01-01",
+                     dateFormatMask : String = "yyyy-MM-dd",
+                     numYears : Int  = 100,
                      spark: SparkSession = SparkSession.builder().getOrCreate()) extends Serializable  {
 
   private val dtFormat = DateTimeFormatter.ISO_LOCAL_DATE
   private val startTime = LocalDate.parse(startDate, dtFormat)
   private val startTimeEpoch = startTime.toEpochDay
-  private var numberOfYearsToGenerate = 100
-  private var endTime = startTime.plusYears(numberOfYearsToGenerate)
+  private var endTime = startTime.plusYears(numYears)
 
-  def withNumberOfYearsToGenerate(numYears: Int): DateDimension = {
-    numberOfYearsToGenerate = numYears
-    endTime = startTime.plusYears(numYears)
-    this
-  }
-
-  def create() = {
+  def createDataFrame() = {
     //Get an exact number of Days based on number of calendar years after start date
     val numberOfDaysToGenerate = DAYS.between(startTime, endTime)
 
